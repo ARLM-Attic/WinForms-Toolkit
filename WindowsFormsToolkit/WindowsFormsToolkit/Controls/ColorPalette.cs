@@ -5,7 +5,7 @@ using System.Drawing;
 using System.Data;
 using System.Windows.Forms;
 
-namespace vbMaf.Windows.Forms
+namespace WindowsFormsToolkit.Controls
 {
 	public enum ColorType {
 		SystemColor,

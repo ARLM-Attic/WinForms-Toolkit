@@ -56,6 +56,37 @@
     <Compile Include="Controls\CueTextExtender.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Controls\NotificationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Controls\NotificationForm.designer.cs">
+      <DependentUpon>NotificationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\SplitButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\TabControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\Validators\BaseCompareValidator.cs" />
+    <Compile Include="Controls\Validators\BaseValidator.cs" />
+    <Compile Include="Controls\Validators\CompareToControlValidator.cs" />
+    <Compile Include="Controls\Validators\CompareValidator.cs" />
+    <Compile Include="Controls\Validators\CustomValidator.cs" />
+    <Compile Include="Controls\Validators\IValidator.cs" />
+    <Compile Include="Controls\Validators\RangeValidator.cs" />
+    <Compile Include="Controls\Validators\RegularExpressionValidator.cs" />
+    <Compile Include="Controls\Validators\RequiredFieldValidator.cs" />
+    <Compile Include="Controls\Validators\RequiredFieldValidor.cs" />
+    <Compile Include="Controls\Validators\ValidatorExtender.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\Validators\ValidatorExtender.designer.cs">
+      <DependentUpon>ValidatorExtender.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Validators\ValidatorsFactory.cs" />
+    <Compile Include="Controls\Validators\ValidatorType.cs" />
+    <Compile Include="Drawing2D\RoundedRectangle.cs" />
     <Compile Include="Internal\PInvoke.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -66,6 +97,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Controls\ColorPalette.resx">
       <DependentUpon>ColorPalette.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\NotificationForm.resx">
+      <DependentUpon>NotificationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\Validators\ValidatorExtender.resx">
+      <DependentUpon>ValidatorExtender.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
