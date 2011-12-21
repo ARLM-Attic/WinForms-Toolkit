@@ -65,7 +65,7 @@ namespace WindowsFormsToolkit.Controls
 			get {return colors;}
 			set {
 				if (colorType != ColorType.Custom) {
-					//throw new Exception("Impossible de modifier la liste des couleurs pour " + colorType.ToString());
+					//throw new Exception("Impossible de modifiers la liste des couleurs pour " + colorType.ToString());
 				} else {
 					colors = value;
 				}

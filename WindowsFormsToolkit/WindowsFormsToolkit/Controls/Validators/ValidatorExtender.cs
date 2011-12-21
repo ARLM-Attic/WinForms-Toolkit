@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using System.Reflection;
 using System.Windows.Forms;
 using WindowsFormsToolkit.Controls.Validators;
@@ -26,6 +27,45 @@ namespace WindowsFormsToolkit.Controls.Validators
             validators = new Dictionary<Control, ValidatorControl>();
             container.Add(this);
             InitializeComponent();
+        }
+
+        /// <summary>
+        /// Gets the validator for control.
+        /// </summary>
+        /// <param name="control">The control.</param>
+        /// <returns></returns>
+        public IValidator GetValidatorForControl(Control control) {
+            var validator = from v in this.validators
+                            where v.Key == control
+                            select v.Value.Validator;
+
+            return validator.FirstOrDefault();
+        }
+
+        /// <summary>
+        /// Gets the validator comparing to control.
+        /// </summary>
+        /// <param name="control">The control.</param>
+        /// <returns></returns>
+        public IEnumerable<IValidator> GetValidatorComparingToControl(Control control) {
+            var validator = from v in this.validators
+                            where v.Value.ValidatorType == ValidatorType.CompareToControlValidator
+                                && (v.Value.Validator as CompareToControlValidator).ControlToCompare == control
+                            select v.Value.Validator;
+            return validator;
+        }
+
+        /// <summary>
+        /// Gets all controls compare to.
+        /// </summary>
+        /// <param name="control">The control.</param>
+        /// <returns></returns>
+        public IEnumerable<Control> GetAllControlsCompareTo(Control control) {
+            var controls = from v in this.validators
+                            where v.Value.ValidatorType == ValidatorType.CompareToControlValidator
+                                && (v.Value.Validator as CompareToControlValidator).ControlToCompare == control
+                            select v.Key;
+            return controls;
         }
 
         #region Properties
@@ -231,7 +271,6 @@ namespace WindowsFormsToolkit.Controls.Validators
         ///<summary>
         ///Signals the object that initialization is complete.
         ///</summary>
-        ///
         public void EndInit()
         {
             //throw new NotImplementedException();
@@ -242,6 +281,25 @@ namespace WindowsFormsToolkit.Controls.Validators
                 {
                     c.CausesValidation = true;
                     c.Validating += new CancelEventHandler(c_Validating);
+
+                    if (validators[c].ValidatorType == ValidatorType.CompareToControlValidator) {
+                        var controlToCompare = (validators[c].Validator as CompareToControlValidator).ControlToCompare;
+
+                        if (controlToCompare != null)
+                        {
+                            controlToCompare.CausesValidation = true;
+                            controlToCompare.Validating += (s,e) => {
+                                var controls = this.GetAllControlsCompareTo(s as Control);
+                                if (controls.Any()) {
+                                    controls.ToList().ForEach(ctrl => c_Validating(ctrl, new CancelEventArgs()));
+                                }
+                                //var _validators = this.GetValidatorComparingToControl(s as Control);
+                                //if (_validators.Any()) {
+                                //    _validators.ToList().ForEach(v => v.Validate());                                    
+                                //}
+                            };
+                        }
+                    }
                 }
             }
         }

@@ -77,7 +77,6 @@
     <Compile Include="Controls\Validators\RangeValidator.cs" />
     <Compile Include="Controls\Validators\RegularExpressionValidator.cs" />
     <Compile Include="Controls\Validators\RequiredFieldValidator.cs" />
-    <Compile Include="Controls\Validators\RequiredFieldValidor.cs" />
     <Compile Include="Controls\Validators\ValidatorExtender.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -86,12 +85,15 @@
     </Compile>
     <Compile Include="Controls\Validators\ValidatorsFactory.cs" />
     <Compile Include="Controls\Validators\ValidatorType.cs" />
+    <Compile Include="Data\DataTableConvertionExtensionMethods.cs" />
     <Compile Include="Drawing2D\RoundedRectangle.cs" />
+    <Compile Include="Extensions\HotKeysEventArgs.cs" />
+    <Compile Include="Extensions\HotKeysManager.cs" />
     <Compile Include="Internal\PInvoke.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Threading\WatchDogRunner.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Extensions\" />
     <Folder Include="Helpers\" />
   </ItemGroup>
   <ItemGroup>
