@@ -46,6 +46,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CommandManager\Command.cs" />
+    <Compile Include="CommandManager\CommandBinder.cs" />
+    <Compile Include="CommandManager\CommandManager.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CommandManager\ActionCommand.cs" />
+    <Compile Include="CommandManager\ICommand.cs" />
+    <Compile Include="CommandManager\ICommandBinder.cs" />
     <Compile Include="Controls\BalloonTip.cs" />
     <Compile Include="Controls\BalloonTipExtender.cs">
       <SubType>Component</SubType>

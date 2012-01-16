@@ -29,22 +29,24 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            WindowsFormsToolkit.Controls.Validators.CompareValidator compareValidator5 = new WindowsFormsToolkit.Controls.Validators.CompareValidator();
-            WindowsFormsToolkit.Controls.Validators.CompareToControlValidator compareToControlValidator3 = new WindowsFormsToolkit.Controls.Validators.CompareToControlValidator();
-            WindowsFormsToolkit.Controls.Validators.RegularExpressionValidator regularExpressionValidator3 = new WindowsFormsToolkit.Controls.Validators.RegularExpressionValidator();
-            WindowsFormsToolkit.Controls.Validators.CompareValidator compareValidator6 = new WindowsFormsToolkit.Controls.Validators.CompareValidator();
-            WindowsFormsToolkit.Controls.Validators.RequiredFieldValidator requiredFieldValidator3 = new WindowsFormsToolkit.Controls.Validators.RequiredFieldValidator();
-            WindowsFormsToolkit.Controls.Validators.RangeValidator rangeValidator3 = new WindowsFormsToolkit.Controls.Validators.RangeValidator();
+            WindowsFormsToolkit.Controls.Validators.CompareValidator compareValidator1 = new WindowsFormsToolkit.Controls.Validators.CompareValidator();
+            WindowsFormsToolkit.Controls.Validators.CompareToControlValidator compareToControlValidator1 = new WindowsFormsToolkit.Controls.Validators.CompareToControlValidator();
+            WindowsFormsToolkit.Controls.Validators.RegularExpressionValidator regularExpressionValidator1 = new WindowsFormsToolkit.Controls.Validators.RegularExpressionValidator();
+            WindowsFormsToolkit.Controls.Validators.CompareValidator compareValidator2 = new WindowsFormsToolkit.Controls.Validators.CompareValidator();
+            WindowsFormsToolkit.Controls.Validators.RequiredFieldValidator requiredFieldValidator1 = new WindowsFormsToolkit.Controls.Validators.RequiredFieldValidator();
+            WindowsFormsToolkit.Controls.Validators.RangeValidator rangeValidator1 = new WindowsFormsToolkit.Controls.Validators.RangeValidator();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox7 = new System.Windows.Forms.TextBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.firstChoiceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.secondChoiceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1 = new WindowsFormsToolkit.Controls.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.button1 = new System.Windows.Forms.Button();
             this.colorPalette1 = new WindowsFormsToolkit.Controls.ColorPalette();
             this.splitButton1 = new WindowsFormsToolkit.Controls.SplitButton();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -54,8 +56,6 @@
             this.balloonTipExtender1 = new WindowsFormsToolkit.Controls.BalloonTipExtender();
             this.cueTextExtender1 = new WindowsFormsToolkit.Controls.CueTextExtender(this.components);
             this.validatorExtender1 = new WindowsFormsToolkit.Controls.Validators.ValidatorExtender(this.components);
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.contextMenuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -72,10 +72,10 @@
             this.textBox6.TabIndex = 5;
             this.balloonTipExtender1.SetText(this.textBox6, null);
             this.balloonTipExtender1.SetTitle(this.textBox6, null);
-            compareValidator5.ControlToCompare = this.textBox6;
-            compareValidator5.ErrorMessage = "";
-            compareValidator5.ValueToCompare = null;
-            this.validatorExtender1.SetValidator(this.textBox6, compareValidator5);
+            compareValidator1.ControlToCompare = this.textBox6;
+            compareValidator1.ErrorMessage = "";
+            compareValidator1.ValueToCompare = null;
+            this.validatorExtender1.SetValidator(this.textBox6, compareValidator1);
             this.validatorExtender1.SetValidatorType(this.textBox6, WindowsFormsToolkit.Controls.Validators.ValidatorType.CompareValidator);
             // 
             // textBox5
@@ -87,12 +87,12 @@
             this.textBox5.TabIndex = 3;
             this.balloonTipExtender1.SetText(this.textBox5, null);
             this.balloonTipExtender1.SetTitle(this.textBox5, null);
-            compareToControlValidator3.ControlToCompare = this.textBox6;
-            compareToControlValidator3.ControlToValidate = this.textBox5;
-            compareToControlValidator3.ErrorMessage = "This value must be greater than the other value !";
-            compareToControlValidator3.Type = WindowsFormsToolkit.Controls.Validators.ValidationDataType.Integer;
-            compareToControlValidator3.ValidationCompareOperator = WindowsFormsToolkit.Controls.Validators.ValidationCompareOperator.GreaterThan;
-            this.validatorExtender1.SetValidator(this.textBox5, compareToControlValidator3);
+            compareToControlValidator1.ControlToCompare = this.textBox6;
+            compareToControlValidator1.ControlToValidate = this.textBox5;
+            compareToControlValidator1.ErrorMessage = "This value must be greater than the other value !";
+            compareToControlValidator1.Type = WindowsFormsToolkit.Controls.Validators.ValidationDataType.Integer;
+            compareToControlValidator1.ValidationCompareOperator = WindowsFormsToolkit.Controls.Validators.ValidationCompareOperator.GreaterThan;
+            this.validatorExtender1.SetValidator(this.textBox5, compareToControlValidator1);
             this.validatorExtender1.SetValidatorType(this.textBox5, WindowsFormsToolkit.Controls.Validators.ValidatorType.CompareToControlValidator);
             // 
             // textBox2
@@ -104,10 +104,10 @@
             this.textBox2.TabIndex = 1;
             this.balloonTipExtender1.SetText(this.textBox2, null);
             this.balloonTipExtender1.SetTitle(this.textBox2, null);
-            regularExpressionValidator3.ControlToValidate = this.textBox2;
-            regularExpressionValidator3.ErrorMessage = "Please enter numbers !";
-            regularExpressionValidator3.Pattern = "^\\d*$";
-            this.validatorExtender1.SetValidator(this.textBox2, regularExpressionValidator3);
+            regularExpressionValidator1.ControlToValidate = this.textBox2;
+            regularExpressionValidator1.ErrorMessage = "Please enter numbers !";
+            regularExpressionValidator1.Pattern = "^\\d*$";
+            this.validatorExtender1.SetValidator(this.textBox2, regularExpressionValidator1);
             this.validatorExtender1.SetValidatorType(this.textBox2, WindowsFormsToolkit.Controls.Validators.ValidatorType.RegularExpressionValidator);
             this.textBox2.Leave += new System.EventHandler(this.textBox2_Leave);
             // 
@@ -120,12 +120,12 @@
             this.textBox4.TabIndex = 2;
             this.balloonTipExtender1.SetText(this.textBox4, null);
             this.balloonTipExtender1.SetTitle(this.textBox4, null);
-            compareValidator6.ControlToCompare = this.textBox4;
-            compareValidator6.ErrorMessage = "Value must be less than 100 !";
-            compareValidator6.Type = WindowsFormsToolkit.Controls.Validators.ValidationDataType.Integer;
-            compareValidator6.ValidationCompareOperator = WindowsFormsToolkit.Controls.Validators.ValidationCompareOperator.LessThan;
-            compareValidator6.ValueToCompare = "100";
-            this.validatorExtender1.SetValidator(this.textBox4, compareValidator6);
+            compareValidator2.ControlToCompare = this.textBox4;
+            compareValidator2.ErrorMessage = "Value must be less than 100 !";
+            compareValidator2.Type = WindowsFormsToolkit.Controls.Validators.ValidationDataType.Integer;
+            compareValidator2.ValidationCompareOperator = WindowsFormsToolkit.Controls.Validators.ValidationCompareOperator.LessThan;
+            compareValidator2.ValueToCompare = "100";
+            this.validatorExtender1.SetValidator(this.textBox4, compareValidator2);
             this.validatorExtender1.SetValidatorType(this.textBox4, WindowsFormsToolkit.Controls.Validators.ValidatorType.CompareValidator);
             // 
             // textBox3
@@ -137,10 +137,27 @@
             this.textBox3.TabIndex = 0;
             this.balloonTipExtender1.SetText(this.textBox3, null);
             this.balloonTipExtender1.SetTitle(this.textBox3, null);
-            requiredFieldValidator3.ControlToValidate = this.textBox3;
-            requiredFieldValidator3.ErrorMessage = "This field is required !";
-            this.validatorExtender1.SetValidator(this.textBox3, requiredFieldValidator3);
+            requiredFieldValidator1.ControlToValidate = this.textBox3;
+            requiredFieldValidator1.ErrorMessage = "This field is required !";
+            this.validatorExtender1.SetValidator(this.textBox3, requiredFieldValidator1);
             this.validatorExtender1.SetValidatorType(this.textBox3, WindowsFormsToolkit.Controls.Validators.ValidatorType.RequiredFieldValidator);
+            // 
+            // textBox7
+            // 
+            this.cueTextExtender1.SetCueText(this.textBox7, "Value must be between 10 and 20");
+            this.textBox7.Location = new System.Drawing.Point(98, 188);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(304, 20);
+            this.textBox7.TabIndex = 6;
+            this.balloonTipExtender1.SetText(this.textBox7, null);
+            this.balloonTipExtender1.SetTitle(this.textBox7, null);
+            rangeValidator1.ControlToCompare = this.textBox7;
+            rangeValidator1.ErrorMessage = "Value must be between 10 and 20 !";
+            rangeValidator1.MaximumValue = "10";
+            rangeValidator1.MinimumValue = "20";
+            rangeValidator1.Type = WindowsFormsToolkit.Controls.Validators.ValidationDataType.Integer;
+            this.validatorExtender1.SetValidator(this.textBox7, rangeValidator1);
+            this.validatorExtender1.SetValidatorType(this.textBox7, WindowsFormsToolkit.Controls.Validators.ValidatorType.RangeValidator);
             // 
             // contextMenuStrip1
             // 
@@ -190,41 +207,50 @@
             this.tabPage1.Text = "Base controls";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(249, 81);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(140, 46);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "Click me to show a notification form !";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // colorPalette1
             // 
             this.colorPalette1.AutoSize = false;
             this.colorPalette1.ColorButtonSize = new System.Drawing.Size(16, 16);
             this.colorPalette1.Colors.AddRange(new System.Drawing.Color[] {
-            System.Drawing.Color.White,
             System.Drawing.Color.Transparent,
+            System.Drawing.Color.White,
             System.Drawing.Color.Snow,
             System.Drawing.Color.GhostWhite,
             System.Drawing.Color.MintCream,
-            System.Drawing.Color.Ivory,
-            System.Drawing.Color.FloralWhite,
-            System.Drawing.Color.Honeydew,
             System.Drawing.Color.LavenderBlush,
             System.Drawing.Color.Azure,
             System.Drawing.Color.AliceBlue,
+            System.Drawing.Color.Ivory,
+            System.Drawing.Color.FloralWhite,
+            System.Drawing.Color.Honeydew,
             System.Drawing.Color.SeaShell,
             System.Drawing.Color.WhiteSmoke,
             System.Drawing.Color.OldLace,
-            System.Drawing.Color.Linen,
-            System.Drawing.Color.MistyRose,
             System.Drawing.Color.Lavender,
-            System.Drawing.Color.LightYellow,
+            System.Drawing.Color.MistyRose,
+            System.Drawing.Color.Linen,
             System.Drawing.Color.LightCyan,
+            System.Drawing.Color.LightYellow,
             System.Drawing.Color.Cornsilk,
             System.Drawing.Color.PapayaWhip,
-            System.Drawing.Color.Beige,
             System.Drawing.Color.AntiqueWhite,
-            System.Drawing.Color.BlanchedAlmond,
-            System.Drawing.Color.LemonChiffon,
+            System.Drawing.Color.Beige,
             System.Drawing.Color.LightGoldenrodYellow,
+            System.Drawing.Color.LemonChiffon,
+            System.Drawing.Color.BlanchedAlmond,
             System.Drawing.Color.Bisque,
             System.Drawing.Color.Pink,
-            System.Drawing.Color.Gainsboro,
             System.Drawing.Color.PeachPuff,
+            System.Drawing.Color.Gainsboro,
             System.Drawing.Color.LightPink,
             System.Drawing.Color.Moccasin,
             System.Drawing.Color.NavajoWhite,
@@ -234,19 +260,19 @@
             System.Drawing.Color.PaleGoldenrod,
             System.Drawing.Color.Thistle,
             System.Drawing.Color.PowderBlue,
-            System.Drawing.Color.LightBlue,
             System.Drawing.Color.PaleGreen,
+            System.Drawing.Color.LightBlue,
             System.Drawing.Color.LightSteelBlue,
             System.Drawing.Color.LightSkyBlue,
             System.Drawing.Color.Silver,
-            System.Drawing.Color.LightGreen,
             System.Drawing.Color.Aquamarine,
+            System.Drawing.Color.LightGreen,
             System.Drawing.Color.Plum,
             System.Drawing.Color.Khaki,
             System.Drawing.Color.LightSalmon,
             System.Drawing.Color.SkyBlue,
-            System.Drawing.Color.LightCoral,
             System.Drawing.Color.Violet,
+            System.Drawing.Color.LightCoral,
             System.Drawing.Color.Salmon,
             System.Drawing.Color.HotPink,
             System.Drawing.Color.BurlyWood,
@@ -257,17 +283,17 @@
             System.Drawing.Color.DarkGray,
             System.Drawing.Color.CornflowerBlue,
             System.Drawing.Color.Coral,
-            System.Drawing.Color.PaleVioletRed,
-            System.Drawing.Color.RosyBrown,
             System.Drawing.Color.MediumPurple,
+            System.Drawing.Color.RosyBrown,
+            System.Drawing.Color.PaleVioletRed,
             System.Drawing.Color.Orchid,
             System.Drawing.Color.DarkSeaGreen,
             System.Drawing.Color.Tomato,
             System.Drawing.Color.MediumAquamarine,
             System.Drawing.Color.GreenYellow,
             System.Drawing.Color.IndianRed,
-            System.Drawing.Color.DarkKhaki,
             System.Drawing.Color.MediumOrchid,
+            System.Drawing.Color.DarkKhaki,
             System.Drawing.Color.SlateBlue,
             System.Drawing.Color.RoyalBlue,
             System.Drawing.Color.Turquoise,
@@ -277,43 +303,43 @@
             System.Drawing.Color.LightSlateGray,
             System.Drawing.Color.BlueViolet,
             System.Drawing.Color.Peru,
-            System.Drawing.Color.SlateGray,
             System.Drawing.Color.Gray,
-            System.Drawing.Color.Chartreuse,
-            System.Drawing.Color.CadetBlue,
-            System.Drawing.Color.Yellow,
-            System.Drawing.Color.Red,
-            System.Drawing.Color.SpringGreen,
-            System.Drawing.Color.Blue,
-            System.Drawing.Color.Orange,
-            System.Drawing.Color.OrangeRed,
-            System.Drawing.Color.Aqua,
-            System.Drawing.Color.Gold,
-            System.Drawing.Color.Magenta,
+            System.Drawing.Color.SlateGray,
             System.Drawing.Color.YellowGreen,
             System.Drawing.Color.LimeGreen,
+            System.Drawing.Color.Gold,
+            System.Drawing.Color.Magenta,
             System.Drawing.Color.Lime,
-            System.Drawing.Color.DeepSkyBlue,
-            System.Drawing.Color.Fuchsia,
             System.Drawing.Color.Cyan,
             System.Drawing.Color.DarkOrange,
+            System.Drawing.Color.DeepSkyBlue,
+            System.Drawing.Color.Fuchsia,
+            System.Drawing.Color.Yellow,
+            System.Drawing.Color.Red,
+            System.Drawing.Color.Chartreuse,
+            System.Drawing.Color.CadetBlue,
+            System.Drawing.Color.SpringGreen,
+            System.Drawing.Color.OrangeRed,
+            System.Drawing.Color.Aqua,
+            System.Drawing.Color.Blue,
+            System.Drawing.Color.Orange,
             System.Drawing.Color.DarkOrchid,
             System.Drawing.Color.LawnGreen,
-            System.Drawing.Color.SteelBlue,
-            System.Drawing.Color.Goldenrod,
             System.Drawing.Color.MediumSpringGreen,
-            System.Drawing.Color.Crimson,
+            System.Drawing.Color.Goldenrod,
+            System.Drawing.Color.SteelBlue,
             System.Drawing.Color.Chocolate,
+            System.Drawing.Color.Crimson,
             System.Drawing.Color.MediumSeaGreen,
             System.Drawing.Color.MediumVioletRed,
             System.Drawing.Color.Firebrick,
             System.Drawing.Color.DarkViolet,
-            System.Drawing.Color.LightSeaGreen,
             System.Drawing.Color.DimGray,
+            System.Drawing.Color.LightSeaGreen,
             System.Drawing.Color.DarkTurquoise,
             System.Drawing.Color.Brown,
-            System.Drawing.Color.MediumBlue,
             System.Drawing.Color.Sienna,
+            System.Drawing.Color.MediumBlue,
             System.Drawing.Color.DarkSlateBlue,
             System.Drawing.Color.DarkGoldenrod,
             System.Drawing.Color.SeaGreen,
@@ -321,18 +347,18 @@
             System.Drawing.Color.ForestGreen,
             System.Drawing.Color.SaddleBrown,
             System.Drawing.Color.DarkOliveGreen,
-            System.Drawing.Color.DarkRed,
-            System.Drawing.Color.DarkBlue,
             System.Drawing.Color.DarkMagenta,
             System.Drawing.Color.DarkCyan,
+            System.Drawing.Color.DarkRed,
+            System.Drawing.Color.DarkBlue,
             System.Drawing.Color.MidnightBlue,
             System.Drawing.Color.Indigo,
-            System.Drawing.Color.Maroon,
-            System.Drawing.Color.Purple,
-            System.Drawing.Color.Green,
             System.Drawing.Color.Teal,
             System.Drawing.Color.Navy,
             System.Drawing.Color.Olive,
+            System.Drawing.Color.Maroon,
+            System.Drawing.Color.Purple,
+            System.Drawing.Color.Green,
             System.Drawing.Color.DarkSlateGray,
             System.Drawing.Color.DarkGreen,
             System.Drawing.Color.Black});
@@ -402,33 +428,6 @@
             this.label1.Size = new System.Drawing.Size(104, 13);
             this.label1.TabIndex = 4;
             this.label1.Text = "must be greater than";
-            // 
-            // textBox7
-            // 
-            this.cueTextExtender1.SetCueText(this.textBox7, "Value must be between 10 and 20");
-            this.textBox7.Location = new System.Drawing.Point(98, 188);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(304, 20);
-            this.textBox7.TabIndex = 6;
-            this.balloonTipExtender1.SetText(this.textBox7, null);
-            this.balloonTipExtender1.SetTitle(this.textBox7, null);
-            rangeValidator3.ControlToCompare = this.textBox7;
-            rangeValidator3.ErrorMessage = "Value must be between 10 and 20 !";
-            rangeValidator3.MaximumValue = "10";
-            rangeValidator3.MinimumValue = "20";
-            rangeValidator3.Type = WindowsFormsToolkit.Controls.Validators.ValidationDataType.Integer;
-            this.validatorExtender1.SetValidator(this.textBox7, rangeValidator3);
-            this.validatorExtender1.SetValidatorType(this.textBox7, WindowsFormsToolkit.Controls.Validators.ValidatorType.RangeValidator);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(249, 81);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(140, 46);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Click me to show a notification form !";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Form1
             // 
