@@ -36,6 +36,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
@@ -95,15 +96,15 @@
     <Compile Include="Controls\Validators\ValidatorType.cs" />
     <Compile Include="Data\DataTableConvertionExtensionMethods.cs" />
     <Compile Include="Drawing2D\RoundedRectangle.cs" />
+    <Compile Include="EventAggregator\EventAggregator.cs" />
     <Compile Include="Extensions\HotKeysEventArgs.cs" />
     <Compile Include="Extensions\HotKeysManager.cs" />
+    <Compile Include="Helpers\IEnumerableExtensions.cs" />
     <Compile Include="Internal\PInvoke.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Threading\WatchDogRunner.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Helpers\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <EmbeddedResource Include="Controls\ColorPalette.resx">
       <DependentUpon>ColorPalette.cs</DependentUpon>
