@@ -211,12 +211,23 @@ namespace WindowsFormsToolkit.Controls.Validators
             {
                 validators[c].LockFocusOnError = lockFocusOnError;
             }
+            else
+            {
+                ValidatorControl vc = new ValidatorControl();
+                vc.LockFocusOnError = lockFocusOnError;
+                validators.Add(c, vc);
+            }
         }
 
         #endregion
         #endregion
 
         #region Private methods
+        /// <summary>
+        /// Creates the type of the validator from.
+        /// </summary>
+        /// <param name="type">The type.</param>
+        /// <returns></returns>
         private static IValidator CreateValidatorFromType(ValidatorType type)
         {
             switch(type)
@@ -242,6 +253,10 @@ namespace WindowsFormsToolkit.Controls.Validators
         #endregion
 
         #region 
+        /// <summary>
+        /// Gets the validators.
+        /// </summary>
+        /// <returns></returns>
         public Dictionary<Control, ValidatorControl> GetValidators()
         {
             return this.validators;
@@ -250,6 +265,13 @@ namespace WindowsFormsToolkit.Controls.Validators
         #endregion
 
         #region IExtenderProvider Members
+        /// <summary>
+        /// Specifies whether this object can provide its extender properties to the specified object.
+        /// </summary>
+        /// <param name="extendee">The <see cref="T:System.Object"/> to receive the extender properties.</param>
+        /// <returns>
+        /// true if this object can provide extender properties to the specified object; otherwise, false.
+        /// </returns>
         public bool CanExtend(object extendee)
         {
             return extendee is TextBox
@@ -314,6 +336,13 @@ namespace WindowsFormsToolkit.Controls.Validators
             private bool lockFocusOnError = false;
             private ValidatorType type = ValidatorType.None;
 
+            /// <summary>
+            /// Gets or sets the control.
+            /// </summary>
+            /// <value>
+            /// The control.
+            /// </value>
+            [Description("Gets or sets the control.")]
             internal Control Control
             {
                 get { return control; }
@@ -323,6 +352,13 @@ namespace WindowsFormsToolkit.Controls.Validators
                 }
             }
 
+            /// <summary>
+            /// Gets or sets the validator.
+            /// </summary>
+            /// <value>
+            /// The validator.
+            /// </value>
+            [Description("Gets or sets the validator.")]
             public IValidator Validator
             {
                 get { return validator; }
@@ -332,11 +368,14 @@ namespace WindowsFormsToolkit.Controls.Validators
                 }
             }
 
+
             /// <summary>
-            /// Obtient ou défini une valeur indiant si en cas de non validation 
-            /// le focus reste bloqué sur le contrôle courant
+            /// Gets or sets a value indicating whether the focus locks on error.
             /// </summary>
-            [Description("Obtient ou défini une valeur indiant si en cas de non validation le focus reste bloqué sur le contrôle courant")]
+            /// <value>
+            ///   <c>true</c> if [lock focus on error]; otherwise, <c>false</c>.
+            /// </value>
+            [Description("Gets or sets a value indicating whether the focus locks on error.")]
             public bool LockFocusOnError
             {
                 get { return lockFocusOnError; }
@@ -346,6 +385,13 @@ namespace WindowsFormsToolkit.Controls.Validators
                 }
             }
 
+            /// <summary>
+            /// Gets or sets the type of the validator.
+            /// </summary>
+            /// <value>
+            /// The type of the validator.
+            /// </value>
+            [Description("Gets or sets the type of the validator.")]
             public ValidatorType ValidatorType
             {
                 get { return type; }
