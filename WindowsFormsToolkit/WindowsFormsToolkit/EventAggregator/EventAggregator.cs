@@ -155,6 +155,10 @@ namespace WindowsFormsToolkit.EventAggregator
             readonly WeakReference reference;
             readonly Dictionary<Type, MethodInfo> supportedHandlers = new Dictionary<Type, MethodInfo>();
 
+            /// <summary>
+            /// Initializes a new instance of the <see cref="Handler"/> class.
+            /// </summary>
+            /// <param name="handler">The handler.</param>
             public Handler(object handler) {
                 reference = new WeakReference(handler);
 
@@ -168,10 +172,21 @@ namespace WindowsFormsToolkit.EventAggregator
                 }
             }
 
+            /// <summary>
+            /// Matcheses the specified instance.
+            /// </summary>
+            /// <param name="instance">The instance.</param>
+            /// <returns></returns>
             public bool Matches(object instance) {
                 return reference.Target == instance;
             }
 
+            /// <summary>
+            /// Handles the specified message type.
+            /// </summary>
+            /// <param name="messageType">Type of the message.</param>
+            /// <param name="message">The message.</param>
+            /// <returns></returns>
             public bool Handle(Type messageType, object message) {
                 var target = reference.Target;
                 if(target == null)
