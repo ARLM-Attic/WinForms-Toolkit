@@ -22,6 +22,24 @@ namespace WindowsFormsToolkit.EventAggregator
         void Handle(TMessage message);
     }
 
+    public interface IEventPublisher {
+        /// <summary>
+        /// Gets or sets the E vent aggregator.
+        /// </summary>
+        /// <value>
+        /// The E vent aggregator.
+        /// </value>
+        IEventAggregator EventAggregator { get; set; }
+    }
+
+    public interface IEventPublisher<TMessage> : IEventPublisher {
+        /// <summary>
+        /// Publishes the specified message.
+        /// </summary>
+        /// <param name="message">The message.</param>
+        void Publish(TMessage message);
+    }
+
     /// <summary>
     ///   Enables loosely-coupled publication of and subscription to events.
     /// </summary>

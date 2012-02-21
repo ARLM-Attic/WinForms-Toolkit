@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<VSTemplate Version="3.0.0" Type="Item" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005">
+  <TemplateData>
+    <Name>MVVM ViewModel</Name>
+    <Description>&lt;Provide a MVVM ViewModel template&gt;</Description>
+    <Icon>ViewModelTemplate.ico</Icon>
+    <TemplateID>2a853600-fe26-41f5-8c95-77dbdc1fa203</TemplateID>
+    <ProjectType>CSharp</ProjectType>
+    <RequiredFrameworkVersion>4</RequiredFrameworkVersion>
+    <NumberOfParentCategoriesToRollUp>1</NumberOfParentCategoriesToRollUp>
+    <DefaultName>ViewModel.cs</DefaultName>
+  </TemplateData>
+  <TemplateContent>
+		<References>
+			<Reference>
+				<Assembly>System</Assembly>
+        <Assembly>WindowsFormsToolkit</Assembly>
+			</Reference>
+		</References>
+
+    <ProjectItem ReplaceParameters="true">ViewModel.cs</ProjectItem>
+  </TemplateContent>
+</VSTemplate>

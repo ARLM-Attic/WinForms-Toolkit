@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<VSTemplate Version="3.0.0" Type="Item" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005">
+  <TemplateData>
+    <Name>MVVM Model</Name>
+    <Description>&lt;Provide a MVVM Model template&gt;</Description>
+    <Icon>ModelTemplate.ico</Icon>
+    <TemplateID>83f47b09-b8fc-4ddc-9ad7-d5e2ca952f61</TemplateID>
+    <ProjectType>CSharp</ProjectType>
+    <RequiredFrameworkVersion>4</RequiredFrameworkVersion>
+    <NumberOfParentCategoriesToRollUp>1</NumberOfParentCategoriesToRollUp>
+    <DefaultName>Model.cs</DefaultName>
+  </TemplateData>
+  <TemplateContent>
+		<References>
+			<Reference>
+				<Assembly>System</Assembly>
+        <Assembly>WindowsFormsToolkit</Assembly>
+			</Reference>
+		</References>
+
+    <ProjectItem ReplaceParameters="true">Model.cs</ProjectItem>
+  </TemplateContent>
+</VSTemplate>

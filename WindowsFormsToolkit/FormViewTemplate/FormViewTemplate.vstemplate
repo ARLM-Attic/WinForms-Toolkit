@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<VSTemplate Version="3.0.0" Type="Item" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005">
+  <TemplateData>
+    <Name>MVVM FormView </Name>
+    <Description>&lt;Provide a MVVM FormView template&gt;</Description>
+    <Icon>FormViewTemplate.ico</Icon>
+    <TemplateID>6d3258dd-8b68-498e-9492-512117259487</TemplateID>
+    <ProjectType>CSharp</ProjectType>
+    <ProjectSubType>MVVM Windows Forms</ProjectSubType>
+    <RequiredFrameworkVersion>2.0</RequiredFrameworkVersion>
+    <NumberOfParentCategoriesToRollUp>1</NumberOfParentCategoriesToRollUp>
+    <DefaultName>FormView.cs</DefaultName>
+  </TemplateData>
+  <TemplateContent>
+		<References>
+			<Reference>
+				<Assembly>System</Assembly>
+        <Assembly>WindowsFormsToolkit</Assembly>
+			</Reference>
+		</References>
+
+    <ProjectItem ReplaceParameters="true">FormView.cs</ProjectItem>
+    <ProjectItem ReplaceParameters="true">FormView.Designer.cs</ProjectItem>
+  </TemplateContent>
+</VSTemplate>

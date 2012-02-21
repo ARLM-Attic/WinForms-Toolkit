@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<VSTemplate Version="3.0.0" Type="Project" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005">
+  <TemplateData>
+    <Name>MVVM Project Template for Windows Forms</Name>
+    <Description>&lt;Provide MVVM Project Template and tools for Windows Forms&gt;</Description>
+    <Icon>MVVMForWindowsTemplate.ico</Icon>
+    <ProjectType>CSharp</ProjectType>
+    <ProjectSubType>Windows</ProjectSubType>
+    <RequiredFrameworkVersion>4.0</RequiredFrameworkVersion>
+    <SortOrder>1000</SortOrder>
+    <TemplateID>13834362-cc04-4040-b2bd-39b8bd4e0f58</TemplateID>
+    <CreateNewFolder>true</CreateNewFolder>
+    <DefaultName>MVVMForWindows</DefaultName>
+    <ProvideDefaultName>true</ProvideDefaultName>
+  </TemplateData>
+  <TemplateContent>
+    <Project File="ProjectTemplate.csproj" ReplaceParameters="true">
+      <ProjectItem ReplaceParameters="true" TargetFileName="Properties\AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
+      <ProjectItem ReplaceParameters="true" TargetFileName="Program.cs">Program.cs</ProjectItem>
+      <Folder Name="Models" TargetFolderName="Models">
+        <ProjectItem ReplaceParameters="true" TargetFileName="MyModel.cs">MyModel.cs</ProjectItem>
+      </Folder>
+      <Folder Name="ViewModels" TargetFolderName="ViewModels">
+        <ProjectItem ReplaceParameters="true" TargetFileName="MyViewModel.cs">MyViewModel.cs</ProjectItem>
+      </Folder>
+      <Folder Name="Views" TargetFolderName="Views">
+        <ProjectItem ReplaceParameters="true" TargetFileName="MyFormView.cs">MyFormView.cs</ProjectItem>
+        <ProjectItem ReplaceParameters="true" TargetFileName="MyFormView.Designer.cs">MyFormView.Designer.cs</ProjectItem>
+      </Folder>
+    </Project>
+  </TemplateContent>
+
+  <WizardExtension>
+    <Assembly>NuGet.VisualStudio.Interop, Version=1.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</Assembly>
+    <FullClassName>NuGet.VisualStudio.TemplateWizard</FullClassName>
+  </WizardExtension>
+
+  <WizardData>
+    <packages repository="extension" repositoryId="MvvmWfToolkit.SebastienFerrand.30473234-c4e9-4cca-b65c-ca2f04a04b6e">
+      <package id="wfToolkit" version="0.4.0" />
+    </packages>
+  </WizardData>
+</VSTemplate>

@@ -7,20 +7,20 @@ using System.Linq.Expressions;
 using System.Windows.Forms;
 using System.Reflection;
 using System.ComponentModel.DataAnnotations;
+using WindowsFormsToolkit.Validation;
 
-namespace TestMVVM
+namespace WindowsFormsToolkit.MVVM
 {
     public abstract class ViewModelBase : NotifyPropertyChangedBaseObject, IDataErrorInfo, IViewModel
     {
         #region IDataErrorInfo
-        private static Dictionary<string, Delegate> propertyGetters;
+        private static ValidationManager validationManager = new ValidationManager();
         private static Dictionary<string, ValidationAttribute[]> validators;
         private Dictionary<string, string>  messages = new Dictionary<string, string>();
-        private bool alreadyLoaded = false;
         private bool isValidating = false;
         private dynamic model;
         private string error;
-        internal Dictionary<string, IBindableComponent> bindControl = new Dictionary<string, IBindableComponent>();
+        private Dictionary<string, IBindableComponent> attachedControls = new Dictionary<string, IBindableComponent>();
 
         /// <summary>
         /// Gets the model.
@@ -32,42 +32,19 @@ namespace TestMVVM
         }
 
         /// <summary>
-        /// Gets the data members.
+        /// Gets the attached controls.
         /// </summary>
-        public List<string> DataMembers {
+        public Dictionary<string, IBindableComponent> AttachedControls {
+            get { return this.attachedControls; }
+        }
+
+        /// <summary>
+        /// Gets the messages.
+        /// </summary>
+        public Dictionary<string, string> Messages {
             get {
-                return validators.Select(v => v.Key).ToList();
+                return this.messages;
             }
-        }
-
-        /// <summary>
-        /// Ensures the data error info is initialized.
-        /// </summary>
-        private void EnsureDataErrorInfoInitialize()
-        {
-            if (this.Model != null && !this.alreadyLoaded)
-            {
-                InitializeDataErrorInfo(this.Model);
-            }
-        }
-
-        /// <summary>
-        /// Initializes the data error info.
-        /// </summary>
-        /// <typeparam name="TModel">The type of the model.</typeparam>
-        /// <param name="model">The model.</param>
-        private void InitializeDataErrorInfo<TModel>(TModel model)
-        {
-            var modelType = typeof(TModel);
-            propertyGetters = modelType.GetProperties()
-                              .Where(p => GetValidations(p).Length != 0)
-                              .ToDictionary(p => p.Name, p => GetValueGetter(modelType, p));
-
-            validators = modelType.GetProperties()
-            .Where(p => GetValidations(p).Length != 0)
-            .ToDictionary(p => p.Name, p => GetValidations(p));
-
-            this.alreadyLoaded = true;
         }
 
         /// <summary>
@@ -79,36 +56,6 @@ namespace TestMVVM
         public bool IsValidating {
             get { return this.isValidating; }
             set { this.isValidating = value; }
-        }
-
-        /// <summary>
-        /// Gets the validations.
-        /// </summary>
-        /// <param name="property">The property.</param>
-        /// <returns></returns>
-        private static ValidationAttribute[] GetValidations(PropertyInfo property)
-        {
-            return (ValidationAttribute[])property
-                .GetCustomAttributes(typeof(ValidationAttribute), true);
-        }
-
-        /// <summary>
-        /// Gets the value getter.
-        /// </summary>
-        /// <param name="t">The t.</param>
-        /// <param name="property">The property.</param>
-        /// <returns></returns>
-        private static Delegate GetValueGetter(Type t, PropertyInfo property)
-        {
-            var instance = Expression.Parameter(t, "i");
-            //var instance = LinqExpression.Expression.Parameter(typeof(object), "i");
-            var cast = Expression.TypeAs(
-                Expression.Property(instance, property),
-                typeof(object));
-
-            var _t = Expression.Lambda(cast, instance).Compile();
-
-            return _t; // as Func<object, object>;
         }
 
         /// <summary>
@@ -135,17 +82,19 @@ namespace TestMVVM
             if (!cancelArgs.Cancel && !isValidating)
             {
                 this.isValidating = true;
-                if (this.Model != null)
-                {
-                    propertyGetters.ToList().ForEach(
-                        pg =>
-                        {
-                            var value = pg.Value.DynamicInvoke(this.Model);
-                            var errors = validators[pg.Key].Where(v => !v.IsValid(value))
-                                .Select(v => v.ErrorMessage).ToList();
-                            messages.Remove(pg.Key);
-                            messages.Add(pg.Key, string.Join(Environment.NewLine, errors));
-                        });
+
+                ValidationContext c = new ValidationContext(this.Model, null, null);
+                var result = (this.Model as ModelBase).Validate(c);
+                messages.Clear();
+
+                if (result != null && result.Any()) {
+                    result.ToList().ForEach(r => { 
+                        if (!messages.ContainsKey(r.MemberNames.First())) {
+                            messages.Add(r.MemberNames.First(), r.ErrorMessage); 
+                        } else {
+                            messages[r.MemberNames.First()] += Environment.NewLine + r.ErrorMessage;
+                        }
+                    });
                 }
             }
             this.error = string.Join(Environment.NewLine, messages.Select(m=>m.Value));
@@ -197,8 +146,6 @@ namespace TestMVVM
         {
             get
             {
-                EnsureDataErrorInfoInitialize();
-                //messages = Validate();
                 if (messages != null && messages.ContainsKey(columnName))
                 {
                     return messages[columnName];

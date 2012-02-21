@@ -5,7 +5,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Linq.Expressions;
 
-namespace TestMVVM
+namespace WindowsFormsToolkit.MVVM
 {
     public static class ViewModelExtensions
     {
@@ -32,18 +32,17 @@ namespace TestMVVM
             where TViewModel : ViewModelBase
             where TControl : IBindableComponent
         {
-            viewModel.bindControl.Add(GetPropertyName(dataMember), control);
+            viewModel.AttachedControls.Add(GetPropertyName(dataMember), control);
 
             if (autoValidate)
             {
                 (control as Control).Validating += (s, e) => { viewModel.Validate(); };
-                (control as Control).Validating -= (s, e) => { viewModel.Validate(); };
             }
 
             return control.DataBindings.Add(
-                GetPropertyName(propertyName),
+                propertyName.GetPropertyName(),
                 viewModel,
-                GetPropertyName(dataMember),
+                dataMember.GetPropertyName(),
                 formattingEnabled,
                 updateMode);
         }
@@ -55,7 +54,7 @@ namespace TestMVVM
         /// <typeparam name="T2">The type of the 2.</typeparam>
         /// <param name="action">The action.</param>
         /// <returns></returns>
-        private static string GetPropertyName<T1, T2>(Expression<Func<T1, T2>> action)
+        private static string GetPropertyName<T1, T2>(this Expression<Func<T1, T2>> action)
         {
             var expression = (MemberExpression)action.Body;
             var propertyName = expression.Member.Name;

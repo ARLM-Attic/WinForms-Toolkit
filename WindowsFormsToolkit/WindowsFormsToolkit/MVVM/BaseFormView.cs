@@ -4,29 +4,32 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using WindowsFormsToolkit.CommandManager;
+using WindowsFormsToolkit.EventAggregator;
 
-namespace TestMVVM
+namespace WindowsFormsToolkit.MVVM
 {
     public class BaseFormView<TViewModel> : Form
         where TViewModel : ViewModelBase
     {
-        private CommandManager commandManager;
+        private CommandManager.CommandManager commandManager;
+        private EventAggregator.EventAggregator eventAggregator;
         private ErrorProvider errorProvider;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="BaseFormView&lt;TViewModel&gt;"/> class.
         /// </summary>
         /// <param name="viewModel">The view model.</param>
-        public BaseFormView(TViewModel viewModel) {
+        public BaseFormView(TViewModel viewModel)
+        {
             this.ViewModel = viewModel;
-            this.commandManager = new CommandManager();
+            this.commandManager = new CommandManager.CommandManager();
             this.errorProvider = new ErrorProvider(this);
         }
 
         /// <summary>
         /// Gets the command manager.
         /// </summary>
-        protected CommandManager CommandManager { get { return this.commandManager; } }
+        protected CommandManager.CommandManager CommandManager { get { return this.commandManager; } }
 
         /// <summary>
         /// Raises the <see cref="E:System.Windows.Forms.Form.Load"/> event.
@@ -36,8 +39,15 @@ namespace TestMVVM
         {
             this.OnInitializeBinding();
             this.OnInitializeCommands();
+            this.OnInitializeEventMessage();
+
             this.ViewModel.Validated += new EventHandler(ViewModel_Validated);
             base.OnLoad(e);
+
+            if (this.ViewModel is IEventPublisher && !DesignMode)
+            {
+                (this.ViewModel as IEventPublisher).EventAggregator = this.eventAggregator;
+            }
 
         }
 
@@ -48,9 +58,12 @@ namespace TestMVVM
         /// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
         protected void ViewModel_Validated(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(this.ViewModel.Error)) {
-                this.ViewModel.DataMembers.ForEach(m => {
-                    this.errorProvider.SetError(this.ViewModel.bindControl[m] as Control, this.ViewModel[m]);
+            this.ViewModel.AttachedControls.ToList().ForEach(c => this.errorProvider.SetError(c.Value as Control, ""));
+            if (!string.IsNullOrEmpty(this.ViewModel.Error))
+            {
+                this.ViewModel.Messages.ToList().ForEach(message =>
+                {
+                    this.errorProvider.SetError(this.ViewModel.AttachedControls[message.Key] as Control, message.Value);
                 });
             }
         }
@@ -80,5 +93,17 @@ namespace TestMVVM
         /// Called when [initialize commands].
         /// </summary>
         protected virtual void OnInitializeCommands() { }
+
+        /// <summary>
+        /// Called when [initialize event message].
+        /// </summary>
+        protected virtual void OnInitializeEventMessage()
+        {
+            if (!DesignMode)
+            {
+                this.eventAggregator = new EventAggregator.EventAggregator();
+                this.eventAggregator.Subscribe(this);
+            }
+        }
     }
 }
