@@ -28,10 +28,11 @@ namespace MvvmPOC.Views
             this.ViewModel.Bind(this.firstNameTextBox, t => t.Text, vm => vm.FirstName, false, DataSourceUpdateMode.OnPropertyChanged);
             this.ViewModel.Bind(this.emailTextBox, t => t.Text, vm => vm.Email, false, DataSourceUpdateMode.OnPropertyChanged);
             this.ViewModel.Bind(this.birthdateDateTimePicker, t => t.Value, vm => vm.BirthDate, false, DataSourceUpdateMode.OnPropertyChanged);
+            this.ViewModel.Bind(this.fullnameTextBox, t => t.Text, vm => vm.FullName, false, DataSourceUpdateMode.OnPropertyChanged);
         }
     }
 
-    public class BaseForm1 : BaseFormView<PersonViewModel> {
+    public class BaseForm1 : FormView<PersonViewModel> {
         public BaseForm1() : this(new PersonViewModel()) { }
 
         public BaseForm1(PersonViewModel viewModel) : base(viewModel) { 

@@ -7,28 +7,26 @@ using System.ComponentModel.DataAnnotations;
 
 namespace MvvmPOC.Models
 {
-    public class Person : ModelBase
+    public class Person : Model
     {
-        private string firstname;
-        private string lastname;
-        private string email;
-        private DateTime birthdate;
-
         /// <summary>
         /// Gets or sets the first name.
         /// </summary>
         /// <value>
         /// The first name.
         /// </value>
-        [Required(ErrorMessage = "Name is required")]
+        [Required(ErrorMessage = "Firstname is required")]
+        [Notify]
+        [Notify("FullName")]
         public string FirstName
         {
-            get { return this.firstname; }
+            get { return base.GetValue<string>("FirstName"); }
             set {
-                if (this.firstname != value) {
-                    this.firstname = value;
-                    base.OnPropertyChanged(() => this.FirstName);
-                }
+                base.SetValue("FirstName", value);
+                //if (this.firstname != value) {
+                //    this.firstname = value;
+                //    base.OnPropertyChanged(() => this.FirstName);
+                //}
             }
         }
 
@@ -38,15 +36,14 @@ namespace MvvmPOC.Models
         /// <value>
         /// The last name.
         /// </value>
-        [Required(ErrorMessage = "FirstName is required")]
+        [Required(ErrorMessage = "Lastname is required")]
+        [Notify]
+        [Notify("FullName")]
         public string LastName
         {
-            get { return this.lastname; }
+            get { return base.GetValue<string>("LastName"); }
             set {
-                if (this.lastname != value) {
-                    this.lastname = value;
-                    base.OnPropertyChanged(() => this.LastName);
-                }
+                base.SetValue("LastName", value);
             }
         }
 
@@ -60,15 +57,20 @@ namespace MvvmPOC.Models
         [RegularExpression(@"^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$",
             ErrorMessage = "Wrong Email address")]
         [DataType(DataType.EmailAddress)]
+        [Notify]
         public string Email
         {
-            get { return this.email; }
+            get { return base.GetValue<string>("Email"); }
             set {
-                if (this.email != value) {
-                    this.email = value;
-                    base.OnPropertyChanged(()=>this.Email);
-                }
+                base.SetValue("Email", value);
             }
+        }
+
+        /// <summary>
+        /// Gets the full name.
+        /// </summary>
+        public string FullName {
+            get { return this.FirstName + " " + this.LastName; }
         }
 
         /// <summary>
@@ -79,15 +81,11 @@ namespace MvvmPOC.Models
         /// </value>
         [Required]
         [DataType("BirthDate", ErrorMessage = "Birthdate must be in past")]
-        //[CustomValidation(typeof(Person), "ValidateBirthdate")]
-        //[DateRangeValidation(MinDateTime=DateTime.MinValue, MaxDateTime=DateTime.Now)]
+        [Notify]
         public DateTime BirthDate {
-            get { return this.birthdate; }
+            get { return this.GetValue<DateTime>("BirthDate"); }
             set {
-                if (this.birthdate != value) {
-                    this.birthdate = value;
-                    base.OnPropertyChanged(() => this.BirthDate);
-                }
+                this.SetValue("BirthDate", value);
             }
         }
 

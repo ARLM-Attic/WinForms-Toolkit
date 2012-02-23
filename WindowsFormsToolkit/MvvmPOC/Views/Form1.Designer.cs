@@ -39,13 +39,15 @@
             this.label4 = new System.Windows.Forms.Label();
             this.birthdateDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
+            this.fullnameTextBox = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // saveButton
             // 
             this.saveButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.saveButton.Location = new System.Drawing.Point(318, 201);
+            this.saveButton.Location = new System.Drawing.Point(318, 228);
             this.saveButton.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(87, 30);
@@ -112,7 +114,7 @@
             // 
             // emailTextBox
             // 
-            this.emailTextBox.Location = new System.Drawing.Point(97, 163);
+            this.emailTextBox.Location = new System.Drawing.Point(97, 195);
             this.emailTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.emailTextBox.Name = "emailTextBox";
             this.emailTextBox.Size = new System.Drawing.Size(308, 25);
@@ -121,7 +123,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(49, 166);
+            this.label4.Location = new System.Drawing.Point(49, 198);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(42, 17);
             this.label4.TabIndex = 6;
@@ -129,7 +131,7 @@
             // 
             // birthdateDateTimePicker
             // 
-            this.birthdateDateTimePicker.Location = new System.Drawing.Point(97, 131);
+            this.birthdateDateTimePicker.Location = new System.Drawing.Point(97, 163);
             this.birthdateDateTimePicker.Name = "birthdateDateTimePicker";
             this.birthdateDateTimePicker.Size = new System.Drawing.Size(200, 25);
             this.birthdateDateTimePicker.TabIndex = 5;
@@ -137,17 +139,38 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(28, 137);
+            this.label5.Location = new System.Drawing.Point(28, 169);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(63, 17);
             this.label5.TabIndex = 4;
             this.label5.Text = "&Birthdate:";
             // 
+            // fullnameTextBox
+            // 
+            this.fullnameTextBox.Location = new System.Drawing.Point(97, 131);
+            this.fullnameTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.fullnameTextBox.Name = "fullnameTextBox";
+            this.fullnameTextBox.ReadOnly = true;
+            this.fullnameTextBox.Size = new System.Drawing.Size(308, 25);
+            this.fullnameTextBox.TabIndex = 9;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(29, 134);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(62, 17);
+            this.label6.TabIndex = 10;
+            this.label6.Text = "&Fullname:";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(420, 247);
+            this.ClientSize = new System.Drawing.Size(420, 274);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.fullnameTextBox);
             this.Controls.Add(this.birthdateDateTimePicker);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label4);
@@ -182,6 +205,8 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DateTimePicker birthdateDateTimePicker;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox fullnameTextBox;
+        private System.Windows.Forms.Label label6;
     }
 }
 

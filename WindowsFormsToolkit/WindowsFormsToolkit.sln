@@ -10,6 +10,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Binairies", "Binairies", "{FCEF5EBB-AE5B-41C7-BA29-B76C84AFEBBA}"
 	ProjectSection(SolutionItems) = preProject
 		Binairies\WindowsFormsToolkit.dll = Binairies\WindowsFormsToolkit.dll
+		Binairies\WindowsFormsToolkit.MVVM.dll = Binairies\WindowsFormsToolkit.MVVM.dll
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Templates", "Templates", "{FBB1B120-4F64-491E-92D0-1B183FF65A76}"
@@ -28,9 +29,16 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FormViewTemplate", "FormVie
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVVMForWindowsTemplate", "MVVMForWindowsTemplate\MVVMForWindowsTemplate.csproj", "{9E5258F0-653F-414D-9C20-CECADC99FCCD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormsToolkit.MVVM", "WindowsFormsToolkit.MVVM\WindowsFormsToolkit.MVVM.csproj", "{D62E9FE2-FC5A-44F2-AB1C-7040D4672683}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Nuget Package", "Nuget Package", "{CD8087CF-14D7-4AB2-978B-42B9D1D61FFC}"
+	ProjectSection(SolutionItems) = preProject
+		wfToolkit.0.4.0.nupkg = wfToolkit.0.4.0.nupkg
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 9
+		SccNumberOfProjects = 10
 		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
 		SccTeamFoundationServer = https://tfs.codeplex.com/tfs/tfs01
 		SccLocalPath0 = .
@@ -63,6 +71,9 @@ Global
 		SccProjectTopLevelParentUniqueName8 = WindowsFormsToolkit.sln
 		SccProjectName8 = MVVMForWindowsTemplate
 		SccLocalPath8 = MVVMForWindowsTemplate
+		SccProjectUniqueName9 = WindowsFormsToolkit.MVVM\\WindowsFormsToolkit.MVVM.csproj
+		SccProjectName9 = WindowsFormsToolkit.MVVM
+		SccLocalPath9 = WindowsFormsToolkit.MVVM
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -153,6 +164,16 @@ Global
 		{9E5258F0-653F-414D-9C20-CECADC99FCCD}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{9E5258F0-653F-414D-9C20-CECADC99FCCD}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{9E5258F0-653F-414D-9C20-CECADC99FCCD}.Release|x86.ActiveCfg = Release|Any CPU
+		{D62E9FE2-FC5A-44F2-AB1C-7040D4672683}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D62E9FE2-FC5A-44F2-AB1C-7040D4672683}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D62E9FE2-FC5A-44F2-AB1C-7040D4672683}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{D62E9FE2-FC5A-44F2-AB1C-7040D4672683}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{D62E9FE2-FC5A-44F2-AB1C-7040D4672683}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{D62E9FE2-FC5A-44F2-AB1C-7040D4672683}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D62E9FE2-FC5A-44F2-AB1C-7040D4672683}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D62E9FE2-FC5A-44F2-AB1C-7040D4672683}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{D62E9FE2-FC5A-44F2-AB1C-7040D4672683}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{D62E9FE2-FC5A-44F2-AB1C-7040D4672683}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
